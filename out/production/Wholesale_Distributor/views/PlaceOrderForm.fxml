@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pic1" prefHeight="751.0" prefWidth="939.0" style="-fx-background-color: #FFA500;;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlaceOrderFormController">
+   <children>
+      <AnchorPane layoutX="17.0" layoutY="9.0" prefHeight="729.0" prefWidth="908.0" style="-fx-background-color: #F5F5F5;;">
+         <children>
+            <Button fx:id="btnBack" layoutX="783.0" layoutY="21.0" mnemonicParsing="false" onAction="#BackOnAction" prefHeight="31.0" prefWidth="94.0" style="-fx-background-color: #FF0000;;" text="Back" />
+            <Label fx:id="lblTotalDiscount" alignment="CENTER" layoutX="188.0" layoutY="651.0" prefHeight="42.0" prefWidth="100.0" text="0.0" />
+            <Label alignment="CENTER" layoutX="350.0" layoutY="657.0" prefHeight="30.0" prefWidth="125.0" text="Remaining :" />
+            <Label fx:id="lblRemaining" alignment="CENTER" layoutX="504.0" layoutY="651.0" prefHeight="42.0" prefWidth="100.0" text="0.0" />
+            <TextField fx:id="txtAmountPaid" layoutX="492.0" layoutY="615.0" prefHeight="31.0" prefWidth="125.0" />
+            <Button fx:id="btnComformOfOrder" layoutX="731.0" layoutY="672.0" mnemonicParsing="false" onAction="#comformOfOrder" style="-fx-background-color: #008000;;" text="Comform Of Order" />
+            <Button fx:id="btnRemoveItem" layoutX="760.0" layoutY="599.0" mnemonicParsing="false" onAction="#RemoveItemOnAction" style="-fx-background-color: #BA55D3;" text="Remove Order" textFill="#1b1919" />
+            <Label alignment="CENTER" layoutX="337.0" layoutY="615.0" prefHeight="30.0" prefWidth="125.0" text="Amount paid :" />
+            <Label fx:id="lblTotalAmount" alignment="CENTER" layoutX="188.0" layoutY="609.0" prefHeight="42.0" prefWidth="100.0" text="0.0" />
+            <Label alignment="CENTER" layoutX="71.0" layoutY="662.0" prefHeight="21.0" prefWidth="125.0" text="Total Discount:" />
+            <Label alignment="CENTER" layoutX="71.0" layoutY="615.0" prefHeight="30.0" prefWidth="125.0" text="Total Amount :" />
+            <TableView fx:id="tblCart" layoutX="46.0" layoutY="249.0" prefHeight="332.0" prefWidth="816.0">
+              <columns>
+                <TableColumn fx:id="colItemCode" prefWidth="100.0" text="Item code" />
+                <TableColumn fx:id="colDescription" prefWidth="98.0" text="Description" />
+                  <TableColumn fx:id="colPackSize" prefWidth="92.0" text="Pack Size" />
+                  <TableColumn fx:id="colUnitePrice" prefWidth="129.0" text="Unit Price" />
+                  <TableColumn fx:id="colQty" prefWidth="121.0" text="Qty" />
+                  <TableColumn fx:id="colDiscount" prefWidth="121.0" text="Discount" />
+                  <TableColumn fx:id="colTotal" prefWidth="152.0" text="Total" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnAddToCart" layoutX="679.0" layoutY="204.0" mnemonicParsing="false" onAction="#AddToCartOnAction" text="Add To Cart &amp; Modify Order" />
+            <TextField fx:id="txtQty" layoutX="721.0" layoutY="147.0" prefHeight="31.0" prefWidth="125.0" promptText="Qty" />
+            <TextField fx:id="txtQtyOnHand" layoutX="542.0" layoutY="147.0" prefHeight="31.0" prefWidth="125.0" promptText="Qty On Hand" />
+            <TextField fx:id="txtUnitPrice" layoutX="379.0" layoutY="147.0" prefHeight="31.0" prefWidth="125.0" promptText="Unit Price" />
+            <TextField fx:id="txtPckSize" layoutX="212.0" layoutY="147.0" prefHeight="31.0" prefWidth="125.0" promptText="Pack Size" />
+            <TextField fx:id="txtDescription" layoutX="33.0" layoutY="147.0" prefHeight="31.0" prefWidth="125.0" promptText="Description" />
+            <Label fx:id="lblOrderID" alignment="CENTER" layoutX="715.0" layoutY="100.0" prefHeight="31.0" prefWidth="137.0" text="0001">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="595.0" layoutY="95.0" prefHeight="42.0" prefWidth="94.0" text="Order ID :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDate" alignment="CENTER" layoutX="689.0" layoutY="58.0" prefHeight="42.0" prefWidth="171.0" text="2021-08-31">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="617.0" layoutY="64.0" prefHeight="30.0" prefWidth="76.0" text="Date :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cmbItemID" layoutX="250.0" layoutY="79.0" prefWidth="150.0" promptText="Item ID" />
+            <ComboBox fx:id="cmbCustomerID" layoutX="33.0" layoutY="79.0" prefWidth="150.0" promptText="Customer ID" />
+            <Label alignment="CENTER" layoutX="184.0" layoutY="21.0" prefHeight="31.0" prefWidth="516.0" text="Place Order">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Separator layoutX="174.0" layoutY="51.0" prefHeight="0.0" prefWidth="505.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pic1" prefHeight="726.0" prefWidth="918.0" style="-fx-background-color: #FFA500;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MostAndLeastMovableItemFormController">
+   <children>
+      <AnchorPane layoutX="12.0" layoutY="13.0" prefHeight="704.0" prefWidth="896.0" style="-fx-background-color: #F5F5F5;">
+         <children>
+            <Label alignment="CENTER" layoutY="21.0" prefHeight="47.0" prefWidth="868.0" text="Most And Least Movable Item">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Separator layoutX="123.0" layoutY="70.0" prefHeight="0.0" prefWidth="577.0" />
+            <Button fx:id="btnback" layoutX="762.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackOnAction" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: #FF0000;" text="Back" />
+            <TableView fx:id="tblMovableItem" layoutX="22.0" layoutY="102.0" prefHeight="557.0" prefWidth="853.0">
+              <columns>
+                <TableColumn fx:id="colItemCode" prefWidth="121.0" text="ItemCode" />
+                <TableColumn fx:id="colDescription" prefWidth="119.0" text="Description" />
+                  <TableColumn fx:id="colPackSize" prefWidth="107.0" text="PackSize" />
+                  <TableColumn fx:id="colUnitePrice" prefWidth="122.0" text="UnitPrice" />
+                  <TableColumn fx:id="colQtyOnHand" prefWidth="123.0" text="QtyOnHand" />
+                  <TableColumn fx:id="colFirstQtyOnHand" prefWidth="134.0" text="FirstQtyOnHand" />
+                  <TableColumn fx:id="colMovable" prefWidth="139.0" text="Movable" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

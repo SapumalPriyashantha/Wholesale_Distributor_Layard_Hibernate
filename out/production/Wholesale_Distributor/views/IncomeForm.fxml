@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="pic1" prefHeight="679.0" prefWidth="748.0" style="-fx-background-color: #FFA500;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IncomeFormController">
+   <children>
+      <AnchorPane layoutX="20.0" layoutY="19.0" prefHeight="641.0" prefWidth="705.0" style="-fx-background-color: #F5F5F5;">
+         <children>
+            <Label alignment="CENTER" layoutX="97.0" layoutY="7.0" prefHeight="45.0" prefWidth="479.0" text="Income Report">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tblIncomereport" layoutX="16.0" layoutY="121.0" prefHeight="449.0" prefWidth="673.0">
+              <columns>
+                <TableColumn fx:id="colOrderId" prefWidth="157.0" text="Order ID" />
+                <TableColumn fx:id="colOrderdate" prefWidth="162.0" text="Order Date" />
+                  <TableColumn fx:id="colCustomerId" prefWidth="173.0" text="Customer ID" />
+                  <TableColumn fx:id="colIncome" prefWidth="179.0" text="Income" />
+              </columns>
+            </TableView>
+            <Label layoutX="44.0" layoutY="581.0" text="Total :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTotal" layoutX="115.0" layoutY="581.0" text="0.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnSearch" layoutX="580.0" layoutY="67.0" mnemonicParsing="false" onAction="#searchIncomeOnAction" prefHeight="31.0" prefWidth="109.0" text="search" />
+            <TextField fx:id="txtFormday" layoutX="240.0" layoutY="61.0" prefHeight="31.0" prefWidth="43.0" promptText="01" />
+            <TextField fx:id="txtToDay" layoutX="485.0" layoutY="61.0" prefHeight="31.0" prefWidth="43.0" promptText="31" />
+            <TextField fx:id="txtToMonth" layoutX="420.0" layoutY="61.0" prefHeight="31.0" prefWidth="43.0" promptText="01" />
+            <TextField fx:id="txtFormMonth" layoutX="178.0" layoutY="61.0" prefHeight="31.0" prefWidth="43.0" promptText="01" />
+            <TextField fx:id="txtFormYear" layoutX="92.0" layoutY="61.0" prefHeight="31.0" prefWidth="72.0" promptText="2021" />
+            <TextField fx:id="txtToYear" layoutX="336.0" layoutY="61.0" prefHeight="31.0" prefWidth="72.0" promptText="2021" />
+            <Button fx:id="btnBack" layoutX="588.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackOnAction" prefHeight="31.0" prefWidth="94.0" style="-fx-background-color: #FF0000;" text="Back" />
+            <Text layoutX="409.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="21.999997958540916">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="463.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.000003226101398">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="229.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="22.0000032261014">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="170.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.000010579824448">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Label alignment="CENTER" layoutX="294.0" layoutY="59.0" prefHeight="31.0" prefWidth="43.0" text="To :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="16.0" layoutY="61.0" prefHeight="31.0" prefWidth="72.0" text="From :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Separator layoutX="161.0" layoutY="42.0" prefHeight="0.0" prefWidth="350.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
