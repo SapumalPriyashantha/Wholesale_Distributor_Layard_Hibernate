@@ -41,7 +41,7 @@ public class OrderDAOImpl implements OrderDAO {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        String hql="SELECT OrderID FROM Order ORDER BY OrderID DESC";
+        String hql="SELECT OrderID FROM Orders ORDER BY OrderID DESC";
         Query query = session.createQuery(hql);
         query.setMaxResults(1);
         List<String> rst = query.list();
@@ -52,7 +52,7 @@ public class OrderDAOImpl implements OrderDAO {
         if (! rst.isEmpty()){
 
             int tempId = Integer.
-                    parseInt(rst.get(1).split("-")[1]);
+                    parseInt(rst.get(0).split("-")[1]);
             tempId=tempId+1;
             if (tempId<=9){
                 return "O-00"+tempId;
@@ -151,7 +151,7 @@ public class OrderDAOImpl implements OrderDAO {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "FROM Order WHERE CustID = :customer_id";
+        String hql = "FROM Orders WHERE customer.CustID = :customer_id";
         Query query = session.createQuery(hql);
         query.setParameter("customer_id",customerID);
         List<Order> rst = query.list();
@@ -185,20 +185,21 @@ public class OrderDAOImpl implements OrderDAO {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "FROM Order WHERE Orderdate BETWEEN :from AND :to";
+        String hql = "FROM Orders WHERE Orderdate BETWEEN :from AND :to";
         Query query = session.createQuery(hql);
         query.setParameter("from",formYear + "-" + formMonth + "-" + formday);
         query.setParameter("to",toYear + "-" + toMonth + "-" + toDay);
         List<Order> rst = query.list();
-        List<Order> ids = new ArrayList<>();
-
-        for (Order c:rst) {
-            ids.add( new Order( c.getOrderID(),c.getOrderdate(),c.getCustID(),c.getCost()));
-        }
+//        List<Order> ids = new ArrayList<>();
+//
+//        for (Order c:rst) {//c.getCustomer().getCustID(),c.getCost()
+//            ids.add( new Order( c.getOrderID(),c.getOrderdate(),));
+//        }
         transaction.commit();
         session.close();
-        return ids ;
-    }
+        return rst ;
+//        return null;
+   }
 
     @Override
     public boolean add(Order order) throws SQLException, ClassNotFoundException {

@@ -2,6 +2,7 @@ package lk.ijse.hibernate.entity;
 
 import javax.persistence.*;
 
+@Entity
 public class OrderDetails {
 //    private String OrderID;
 //    private String ItemID;
@@ -50,7 +51,6 @@ public class OrderDetails {
 //        Discount = discount;
 //    }
     @Id
-    @Transient
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
@@ -64,16 +64,23 @@ public class OrderDetails {
     private int OrderQTY;
     private double Discount;
 
-//    public OrderDetails() {
-//    }
-//
-//    public OrderDetails(int id, Order order, Item item, int orderQTY, double discount) {
-//        this.id = id;
-//        this.order = order;
-//        this.item = item;
-//        OrderQTY = orderQTY;
-//        Discount = discount;
-//    }
+    public OrderDetails() {
+    }
+
+    public OrderDetails(Order order, Item item, int orderQTY, double discount) {
+        this.order = order;
+        this.item = item;
+        OrderQTY = orderQTY;
+        Discount = discount;
+    }
+
+    public OrderDetails(int id, Order order, Item item, int orderQTY, double discount) {
+        this.id = id;
+        this.order = order;
+        this.item = item;
+        OrderQTY = orderQTY;
+        Discount = discount;
+    }
 
     public int getId() {
         return id;

@@ -19,7 +19,7 @@ public class OrderBOImpl implements OrderBO {
         List<Order> income = orderDAO.income(formYear, toYear, formMonth, toMonth, formday, toDay);
         for (Order order : income) {
             incomeData.add(new OrderDTO(order.getOrderID(),order.getOrderdate(),
-                    order.getCustID(),order.getCost()));
+                    order.getCustomer().getCustID(),order.getCost()));
         }
         return incomeData;
     }
@@ -30,7 +30,7 @@ public class OrderBOImpl implements OrderBO {
         List<Order> orders = orderDAO.customerwiseIncome(customerID);
         for (Order order : orders) {
             customerwiseIncomedata.add(new OrderDTO(order.getOrderID(),order.getOrderdate(),
-                    order.getCustID(),order.getCost()));
+                    order.getCustomer().getCustID(),order.getCost()));
         }
         return customerwiseIncomedata;
     }

@@ -1,61 +1,52 @@
 package lk.ijse.hibernate.entity;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name = "Orders")
 public class Order {
     @Id
     private String OrderID;
     private String Orderdate;
-    private String CustID;
     private double cost;
 
-    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
-    private List<OrderDetails> orderdetails = new ArrayList<>();
+    @ManyToOne
+    private Customer customer;
+
+    @OneToMany(mappedBy = "order" ,cascade = CascadeType.ALL)
+    private List<OrderDetails> orderDetails = new ArrayList<>();
 
     public Order() {
     }
 //customerwise income walata heduwe
-    public Order(String orderID, String orderdate, double cost) {
-        OrderID = orderID;
-        Orderdate = orderdate;
+    public Order(String OrderID, String Orderdate, double cost) {
+        this.OrderID = OrderID;
+        this.Orderdate = Orderdate;
         this.cost = cost;
     }
 
-    public Order(String orderID, String orderdate, String custID, double cost) {
-        OrderID = orderID;
-        Orderdate = orderdate;
-        CustID = custID;
+    public Order(String OrderID, String Orderdate, double cost, Customer customer) {
+        this.OrderID = OrderID;
+        this.Orderdate = Orderdate;
         this.cost = cost;
+        this.customer = customer;
     }
 
     public String getOrderID() {
         return OrderID;
     }
 
-    public void setOrderID(String orderID) {
-        OrderID = orderID;
+    public void setOrderID(String OrderID) {
+        OrderID = OrderID;
     }
 
     public String getOrderdate() {
         return Orderdate;
     }
 
-    public void setOrderdate(String orderdate) {
-        Orderdate = orderdate;
-    }
-
-    public String getCustID() {
-        return CustID;
-    }
-
-    public void setCustID(String custID) {
-        CustID = custID;
+    public void setOrderdate(String Orderdate) {
+        Orderdate = Orderdate;
     }
 
     public double getCost() {
@@ -66,15 +57,19 @@ public class Order {
         this.cost = cost;
     }
 
-    public List<OrderDetails> getOrderdetails() {
-        return orderdetails;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setOrderdetails(List<OrderDetails> orderdetails) {
-        this.orderdetails = orderdetails;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public void addOrderDetails(OrderDetails orderDetails) {
-        this.orderdetails.add(orderDetails);
+    public List<OrderDetails> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetails> orderDetails) {
+        this.orderDetails = orderDetails;
     }
 }

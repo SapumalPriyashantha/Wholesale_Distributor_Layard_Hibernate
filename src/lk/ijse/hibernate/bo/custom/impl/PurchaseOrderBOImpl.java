@@ -11,6 +11,7 @@ import lk.ijse.hibernate.dao.custom.OrderDetailsDAO;
 import lk.ijse.hibernate.dto.ItemDTO;
 import lk.ijse.hibernate.dto.OrderDTO;
 import lk.ijse.hibernate.dto.OrdreDetailsDTO;
+import lk.ijse.hibernate.entity.Customer;
 import lk.ijse.hibernate.entity.Item;
 import lk.ijse.hibernate.entity.Order;
 import org.hibernate.Session;
@@ -47,8 +48,8 @@ public class PurchaseOrderBOImpl implements PurchaseOrderBO {
         try {
 //            con= DbConnection.getInstance().getConnection();
 //            con.setAutoCommit(false);
-
-            boolean b = orderDAO.add(new Order(orderDTO.getOrderID(),orderDTO.getOrderdate(),orderDTO.getCustID(),orderDTO.getCost()));
+            Customer customer = session.get(Customer.class, "orderDTO.getCustID()");
+            boolean b = orderDAO.add(new Order(orderDTO.getOrderID(),orderDTO.getOrderdate(),orderDTO.getCost(),customer));
 
             if (b){
                 if (saveOrderDetail(orderDTO.getOrderID(), orderDTO.getItems())){

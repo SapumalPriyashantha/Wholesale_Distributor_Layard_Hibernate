@@ -1,7 +1,11 @@
 package lk.ijse.hibernate.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -13,6 +17,9 @@ public class Customer {
     private String City;
     private String Province;
     private String PostalCode;
+
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    private List <Order> order= new ArrayList<>();
 
     public Customer() {
     }

@@ -17,9 +17,7 @@ import java.util.List;
 public class ItemDAOImpl implements ItemDAO {
     @Override
     public boolean add(Item c) throws SQLException, ClassNotFoundException {
-//        return CrudUtil.executeUpdate("INSERT INTO Item VALUES(?,?,?,?,?,?)",
-//                 c.getItemCode(), c.getDescription(), c.getPackSize(),
-//                 c.getUnitPrice(), c.getQtyOnHand(), c.getFirstQtyOnHand());
+
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         session.save(c);
@@ -31,11 +29,7 @@ public class ItemDAOImpl implements ItemDAO {
 
     @Override
     public boolean delete(String s) throws SQLException, ClassNotFoundException {
-//        if(CrudUtil.executeUpdate("DELETE FROM Item WHERE ItemCode=?",s)){
-//            return true;
-//        }else{
-//            return false;
-//        }
+
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         String hql = "DELETE FROM Item WHERE ItemCode = :Item_code";
@@ -54,9 +48,6 @@ public class ItemDAOImpl implements ItemDAO {
 
     @Override
     public boolean update(Item c) throws SQLException, ClassNotFoundException {
-//        return CrudUtil.executeUpdate("UPDATE Item SET Description=?, PackSize=?, UnitPrice=?, QtyOnHand=?, FirstQtyOnHand=? WHERE ItemCode=?",
-//                c.getDescription(),c.getPackSize(),c.getUnitPrice(),
-//                c.getQtyOnHand(),c.getFirstQtyOnHand(),c.getItemCode());
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -87,14 +78,7 @@ public class ItemDAOImpl implements ItemDAO {
 
     @Override
     public List<String> getAll() throws SQLException, ClassNotFoundException {
-//        ResultSet rst = CrudUtil.executeQuery("SELECT * FROM Item");
-//        List<String> ids= new ArrayList<>();
-//        while (rst.next()){
-//            ids.add(
-//                    rst.getString(1)
-//            );
-//        }
-//        return ids;
+
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         List<String> ids = new ArrayList<>();
@@ -111,18 +95,6 @@ public class ItemDAOImpl implements ItemDAO {
 
     @Override
     public Item getItem(String itemcode) throws SQLException, ClassNotFoundException {
-//        ResultSet rst = CrudUtil.executeQuery("SELECT * FROM Item WHERE ItemCode=?", itemcode);
-//        if(rst.next()){
-//            return new Item(rst.getString(1),
-//                    rst.getString(2),
-//                    rst.getString(3),
-//                    rst.getDouble(4),
-//                    rst.getInt(5),
-//                    rst.getInt(6)
-//            );
-//        }else {
-//            return null;
-//        }
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -143,21 +115,6 @@ public class ItemDAOImpl implements ItemDAO {
 
     @Override
     public List<Item> movableItem() throws SQLException, ClassNotFoundException {
-//        ResultSet rst = CrudUtil.executeQuery("SELECT * FROM Item");
-//        List<Item> ids = new ArrayList<>();
-//        while (rst.next()) {
-//            ids.add(
-//                    new Item(
-//                         rst.getString(1),
-//                         rst.getString(2),
-//                         rst.getString(3),
-//                         rst.getDouble(4),
-//                         rst.getInt(5),
-//                         rst.getInt(6)
-//                    )
-//            );
-//        }
-//        return ids;
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -177,7 +134,6 @@ public class ItemDAOImpl implements ItemDAO {
 
     @Override
     public boolean updateQty(String itemCode, int qty) throws SQLException, ClassNotFoundException {
-//        return CrudUtil.executeUpdate("UPDATE Item SET QtyOnHand=(QtyOnHand-?) WHERE ItemCode=?",qty,itemCode);
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
