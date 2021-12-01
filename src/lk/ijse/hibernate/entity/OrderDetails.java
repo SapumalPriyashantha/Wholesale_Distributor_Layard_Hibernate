@@ -74,14 +74,6 @@ public class OrderDetails {
         Discount = discount;
     }
 
-    public OrderDetails(int id, Order order, Item item, int orderQTY, double discount) {
-        this.id = id;
-        this.order = order;
-        this.item = item;
-        OrderQTY = orderQTY;
-        Discount = discount;
-    }
-
     public int getId() {
         return id;
     }
@@ -120,5 +112,16 @@ public class OrderDetails {
 
     public void setDiscount(double discount) {
         Discount = discount;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderDetails{" +
+                "id=" + id +
+                ", order=" + order +
+                ", item=" + item +
+                ", OrderQTY=" + OrderQTY +
+                ", Discount=" + Discount +
+                '}';
     }
 }

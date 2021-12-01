@@ -45,8 +45,8 @@ public class OrderDetailsDAOlmpl implements OrderDetailsDAO {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        Order order = session.get(Order.class, "orderId");
-        Item item = session.get(Item.class, "ItemID");
+        Order order = session.get(Order.class, orderId);
+        Item item = session.get(Item.class, ItemID);
 
         OrderDetails orderDetails = new OrderDetails(order, item, OrderQTY, Discount);
         session.save(orderDetails);

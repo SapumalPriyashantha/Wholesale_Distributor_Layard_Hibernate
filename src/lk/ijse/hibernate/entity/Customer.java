@@ -1,9 +1,6 @@
 package lk.ijse.hibernate.entity;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +15,7 @@ public class Customer {
     private String Province;
     private String PostalCode;
 
-    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List <Order> order= new ArrayList<>();
 
     public Customer() {
@@ -41,6 +38,17 @@ public class Customer {
         City = city;
         Province = province;
         PostalCode = postalCode;
+    }
+
+    public Customer(String custID, String custTitle, String custName, String custAddress, String city, String province, String postalCode, List<Order> order) {
+        CustID = custID;
+        CustTitle = custTitle;
+        CustName = custName;
+        CustAddress = custAddress;
+        City = city;
+        Province = province;
+        PostalCode = postalCode;
+        this.order = order;
     }
 
     public String getCustID() {
@@ -97,5 +105,19 @@ public class Customer {
 
     public void setPostalCode(String postalCode) {
         PostalCode = postalCode;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "CustID='" + CustID + '\'' +
+                ", CustTitle='" + CustTitle + '\'' +
+                ", CustName='" + CustName + '\'' +
+                ", CustAddress='" + CustAddress + '\'' +
+                ", City='" + City + '\'' +
+                ", Province='" + Province + '\'' +
+                ", PostalCode='" + PostalCode + '\'' +
+                ", order=" + order +
+                '}';
     }
 }

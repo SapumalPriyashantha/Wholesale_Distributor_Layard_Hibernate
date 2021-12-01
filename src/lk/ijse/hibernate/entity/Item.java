@@ -1,9 +1,6 @@
 package lk.ijse.hibernate.entity;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +14,7 @@ public class Item {
     private int QtyOnHand;
     private int FirstQtyOnHand;
 
-    @OneToMany(mappedBy = "item" ,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "item" ,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<OrderDetails> orderdetails = new ArrayList<>();
 
     public Item() {
@@ -31,6 +28,16 @@ public class Item {
         UnitPrice = unitPrice;
         QtyOnHand = qtyOnHand;
         FirstQtyOnHand = firstQtyOnHand;
+    }
+
+    public Item(String itemCode, String description, String packSize, double unitPrice, int qtyOnHand, int firstQtyOnHand, List<OrderDetails> orderdetails) {
+        ItemCode = itemCode;
+        Description = description;
+        PackSize = packSize;
+        UnitPrice = unitPrice;
+        QtyOnHand = qtyOnHand;
+        FirstQtyOnHand = firstQtyOnHand;
+        this.orderdetails = orderdetails;
     }
 
     public String getItemCode() {
@@ -91,5 +98,18 @@ public class Item {
 
     public void addOrderDetails(OrderDetails orderDetails) {
         this.orderdetails.add(orderDetails);
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "ItemCode='" + ItemCode + '\'' +
+                ", Description='" + Description + '\'' +
+                ", PackSize='" + PackSize + '\'' +
+                ", UnitPrice=" + UnitPrice +
+                ", QtyOnHand=" + QtyOnHand +
+                ", FirstQtyOnHand=" + FirstQtyOnHand +
+                ", orderdetails=" + orderdetails +
+                '}';
     }
 }

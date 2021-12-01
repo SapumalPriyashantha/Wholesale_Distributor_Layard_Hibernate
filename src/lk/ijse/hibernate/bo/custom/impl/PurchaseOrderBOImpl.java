@@ -46,9 +46,8 @@ public class PurchaseOrderBOImpl implements PurchaseOrderBO {
 
 
         try {
-//            con= DbConnection.getInstance().getConnection();
-//            con.setAutoCommit(false);
-            Customer customer = session.get(Customer.class, "orderDTO.getCustID()");
+            Customer customer = session.get(Customer.class,orderDTO.getCustID());
+
             boolean b = orderDAO.add(new Order(orderDTO.getOrderID(),orderDTO.getOrderdate(),orderDTO.getCost(),customer));
 
             if (b){
